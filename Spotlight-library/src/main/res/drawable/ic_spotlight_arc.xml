@@ -8,13 +8,13 @@
     <path
         android:name="curve_left_atrium"
         android:pathData="M4,48C4,22.6,24.6,2,50,2"
-        android:strokeColor="#eb273f"
+        android:strokeColor="#ffffff"
         android:strokeWidth="4"
-        android:trimPathEnd="0" />
+        android:trimPathEnd="1" />
     <path
         android:name="curve_right_atrium"
         android:pathData="M96,48C96,22.6,75.4,2,50,2"
-        android:strokeColor="#eb273f"
+        android:strokeColor="#ffffff"
         android:strokeWidth="4"
-        android:trimPathEnd="0" />
+        android:trimPathEnd="1" />
 </vector>

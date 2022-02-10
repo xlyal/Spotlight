@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spotlight.iml" filepath="$PROJECT_DIR$/Spotlight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spotlight-library/Spotlight-Spotlight-library.iml" filepath="$PROJECT_DIR$/.idea/modules/Spotlight-library/Spotlight-Spotlight-library.iml" group="Spotlight/Spotlight-library" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Spotlight-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Spotlight-app.iml" group="Spotlight/app" />
       <module fileurl="file://$PROJECT_DIR$/Spotlight-library/Spotlight-library.iml" filepath="$PROJECT_DIR$/Spotlight-library/Spotlight-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/githubSimple-Spotlight.iml" filepath="$PROJECT_DIR$/.idea/modules/githubSimple-Spotlight.iml" group="Spotlight" />
     </modules>
   </component>
 </project>

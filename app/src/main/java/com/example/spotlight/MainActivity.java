@@ -5,11 +5,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,17 +20,7 @@ import com.wooplr.spotlight.utils.Utils;
 
 import java.util.Random;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-
-
-//    static {
-//        AppCompatDelegate.setCompatVectorFromSourcesEnabled(true);
-//    }
 
     private FloatingActionButton fab;
     private static final String INTRO_CARD = "fab_intro";
@@ -43,22 +32,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isRevealEnabled = true;
     private SpotlightView spotLight;
 
-    @BindView(R.id.switchAnimation)
     TextView switchAnimation;
-    @BindView(R.id.reset)
     TextView reset;
-    @BindView(R.id.resetAndPlay)
     TextView resetAndPlay;
-    @BindView(R.id.changePosAndPlay)
     TextView changePosAndPlay;
-    @BindView(R.id.startSequence)
     TextView startSequence;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+
+        switchAnimation = findViewById(R.id.switchAnimation);
+        reset = findViewById(R.id.reset);
+        resetAndPlay = findViewById(R.id.resetAndPlay);
+        changePosAndPlay = findViewById(R.id.changePosAndPlay);
+        startSequence = findViewById(R.id.startSequence);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .enableRevealAnimation(isRevealEnabled)
                 .performClick(true)
                 .fadeinTextDuration(400)
+                .targetPadding(0)
                 //.setTypeface(FontUtil.get(this, "RemachineScript_Personal_Use"))
                 .headingTvColor(Color.parseColor("#eb273f"))
                 .headingTvSize(32)
@@ -155,10 +146,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .subHeadingTvColor(Color.parseColor("#ffffff"))
                 .subHeadingTvSize(16)
                 .subHeadingTvText("Like the picture?\nLet others know.")
-                .maskColor(Color.parseColor("#dc000000"))
+                .maskColor(Color.parseColor("#cc000000"))
                 .target(view)
                 .lineAnimDuration(400)
-                .lineAndArcColor(Color.parseColor("#eb273f"))
+                .lineAndArcColor(Color.parseColor("#ffffff"))
                 .dismissOnTouch(true)
                 .dismissOnBackPress(true)
                 .enableDismissAfterShown(true)

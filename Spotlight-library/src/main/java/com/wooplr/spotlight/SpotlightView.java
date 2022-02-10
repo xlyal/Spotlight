@@ -17,10 +17,10 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.Nullable;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -185,8 +185,6 @@ public class SpotlightView extends FrameLayout {
     private Typeface mTypeface = null;
 
     private int softwareBtnHeight;
-    
-    private boolean dismissCalled = false;
 
 
     public SpotlightView(Context context) {
@@ -349,11 +347,6 @@ public class SpotlightView extends FrameLayout {
      * Dissmiss view with reverse animation
      */
     private void dismiss() {
-        if (dismissCalled) {
-            return;
-        }
-        dismissCalled = true;
-        
         preferencesManager.setDisplayed(usageId);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (isRevealAnimationEnabled)
@@ -408,9 +401,6 @@ public class SpotlightView extends FrameLayout {
         });
 
         setVisibility(View.VISIBLE);
-        if (dismissOnBackPress) {
-            requestFocus();
-        }
         anim.start();
     }
 
@@ -478,9 +468,6 @@ public class SpotlightView extends FrameLayout {
         });
 
         setVisibility(VISIBLE);
-        if (dismissOnBackPress) {
-            requestFocus();
-        }
         startAnimation(fadeIn);
     }
 
@@ -1204,11 +1191,11 @@ public class SpotlightView extends FrameLayout {
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (dismissOnBackPress && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-            if (event.getAction() == KeyEvent.ACTION_UP) {
+        if (dismissOnBackPress) {
+            if (event.getAction() == KeyEvent.ACTION_UP && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
                 dismiss();
+                return true;
             }
-            return true;
         }
         return super.dispatchKeyEvent(event);
     }
